@@ -6,6 +6,9 @@ This project is a conversion of Multiverse by HTML5 UP(html5up.net) from a simpl
 HMTL5 Photo Gallery page into a PHP configurable Photo Gallery. Also, I added 
 multilanguage support, with an option to set a default language.
 
+Demo site: https://www.rafaelamorim.com.br/phtml5pg
+Running site: https://www.rafaelamorim.com.br/52fotos
+
 How to use
 ----------
 
