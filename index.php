@@ -85,12 +85,15 @@ if ($config['random_order']){
             <div id="main">
 
                 <?php
+                $photoNumber = 1;
                 foreach ($image as $img) {
+                    $lazyLoad = $photoNumber >= 15 ? " loading=\"lazy\" " : "";
                     echo "<article class=\"thumb\">\n";
-                    echo "    <a href=\"images/fulls/" . $img['name'] . "\" class=\"image\"><img src=\"images/thumbs/" . $img['name'] . "\" /></a>\n";
+                    echo "    <a href=\"images/fulls/" . $img['name'] . "\" class=\"image\"><img src=\"images/thumbs/" . $img['name'] . "\" ".$lazyLoad."/></a>\n";
                     echo "    <h2>" . $img['title'] . "</h2>\n";
                     echo "    " . $img['text'] . "\n";
                     echo "</article>\n";
+                    $photoNumber++;
                 }
                 ?>
             </div>
