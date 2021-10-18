@@ -18,12 +18,18 @@ How to use
 3. Change parameters like e-mail, social media address in config.php 
 4. Finally, replace all texts your need into label.php 
 
-
 Todo
 ----
 - Generate thumbs automaticaly
 - Add database suport 
 
+Changelog
+---------
+
+- 1.0-102021
+  Added loading=lazy after 15th image
+  Added labels in Spanish
+  Improved contact form JS processing 
 
 
 

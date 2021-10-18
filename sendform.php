@@ -1,11 +1,11 @@
 <?php
 
 /*
- Contact form processing for PHTML5 Photo Gallery
- * @version 1.0-042021
+  Contact form processing for PHTML5 Photo Gallery
+ * @version 1.0-102021
  * @author Rafael Amorim <github.com/rafaelmamorim>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
-*/
+ */
 
 require_once("config.php");
 require_once("label.php");
@@ -30,10 +30,10 @@ function clean_string($string) {
 
 if (empty($_POST['email'])) {
     $errors['email'] = $label[$lang]['email_invalid'];
-} 
+}
 if (empty($_POST['name'])) {
     $errors['name'] = $label[$lang]['name_invalid'];
-} 
+}
 if (empty($_POST['message'])) {
     $errors['message'] = $label[$lang]['message_invalid'];
 } else {

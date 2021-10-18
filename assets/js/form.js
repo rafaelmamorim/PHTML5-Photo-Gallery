@@ -1,7 +1,11 @@
 /* 
- * Source: https://www.digitalocean.com/community/tutorials/submitting-ajax-forms-with-jquery
+ * 
+ * Javascript file for PHTML5 Photo Gallery
+ * @version 1.0-102021
+ * @author Rafael Amorim <github.com/rafaelmamorim>
+ * @license http://opensource.org/licenses/gpl-license.php GNU Public License
+ * 
  */
-
 
 $(document).ready(function () {
     $("form").submit(function (event) {
@@ -19,9 +23,13 @@ $(document).ready(function () {
             data: formData,
             dataType: "json",
             encode: true,
+            beforeSend: function () {
+                $("#sendButton").prop('disabled', true);
+                $('.actions').before("<center><img src='images/loading32.gif' border='0' width='32'/></center>");
+            }
         }).done(function (data) {
-            console.log(data);
             if (!data.success) {
+                $("#sendButton").prop('disabled', false);
                 if (data.errors.name) {
                     $("#name-group").addClass("has-error");
                     $("#name-group").append(
@@ -48,6 +56,8 @@ $(document).ready(function () {
                         );
             }
 
+        }).fail(function () {
+            $("#sendButton").prop('disabled', false);
         });
 
         event.preventDefault();

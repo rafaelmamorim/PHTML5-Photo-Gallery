@@ -1,17 +1,15 @@
 <!DOCTYPE HTML>
-<!--
-        Multiverse by HTML5 UP
-        html5up.net | @ajlkn
-        Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-<div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
--->
 <?php
-
-/***
+/* * *
  * PHTML5 Photo Gallery
- * @version 1.0-042021
+ * @version 1.0-102021
  * @author Rafael Amorim <github.com/rafaelmamorim>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
+ * 
+ * Multiverse by HTML5 UP
+ * html5up.net | @ajlkn
+ * Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+ * Icons made by Freepik from www.flaticon.com
  */
 
 require_once("config.php");
@@ -25,7 +23,7 @@ $lang = in_array($lang, $acceptLang) ? $lang : $config['default_language'];
 if ($config['reverse_order']) {
     $image = array_reverse($image, true);
 }
-if ($config['random_order']){
+if ($config['random_order']) {
     shuffle($image);
 }
 ?>
@@ -52,19 +50,19 @@ if ($config['random_order']){
             echo "<meta property=\"og:locale:alternate\" content=\"" . $value . "\">\n";
         }
         ?>
-        
+
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:title" content="<?php echo $label[$lang]['htmlTitle']; ?>" />
         <meta property="twitter:description" content="<?php echo strip_tags($label[$lang]['SocialMediaText']); ?>" />
         <meta property="twitter:image" content="<?php echo $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'] . $config['social_image']; ?>" />
-        
+
         <link rel="shortcut icon" href="<?php echo $config['favicon']; ?>" type="image/x-icon">
         <link rel="icon" href="<?php echo $config['favicon']; ?>" type="image/x-icon">
-        
+
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         <link rel="stylesheet" href="assets/css/main.css" />
         <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-        
+
     </head>
     <body class="is-preload">
 
@@ -89,7 +87,7 @@ if ($config['random_order']){
                 foreach ($image as $img) {
                     $lazyLoad = $photoNumber >= 15 ? " loading=\"lazy\" " : "";
                     echo "<article class=\"thumb\">\n";
-                    echo "    <a href=\"images/fulls/" . $img['name'] . "\" class=\"image\"><img src=\"images/thumbs/" . $img['name'] . "\" ".$lazyLoad."/></a>\n";
+                    echo "    <a href=\"images/fulls/" . $img['name'] . "\" class=\"image\"><img src=\"images/thumbs/" . $img['name'] . "\" " . $lazyLoad . "/></a>\n";
                     echo "    <h2>" . $img['title'] . "</h2>\n";
                     echo "    " . $img['text'] . "\n";
                     echo "</article>\n";
@@ -153,8 +151,8 @@ if ($config['random_order']){
                                     </div>
                                 </div>
                                 <ul class="actions">
-                                    <li><input type="submit" value="<?php echo $label[$lang]['sendButton']; ?>" class="primary" /></li>
-                                    <li><input type="reset" value="<?php echo $label[$lang]['clearButton']; ?>" /></li>
+                                    <li><input type="submit" id="sendButton" name="sendButton" value="<?php echo $label[$lang]['sendButton']; ?>" class="primary" /></li>
+                                    <li><input type="reset" id="clearButton" name="clearButton" value="clear" onClick="document.getElementById('sendButton').disabled = false;"/></li>
                                 </ul>
                             </form>
                         </section>

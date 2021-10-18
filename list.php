@@ -2,7 +2,7 @@
 
 /*
  Imagem section for PHTML5 Photo Gallery
- * @version 1.0-042021
+ * @version 1.0-102021
  * @author Rafael Amorim <github.com/rafaelmamorim>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  * 
